@@ -3,10 +3,10 @@ Description=gunicorn daemon
 After=network.target
 
 [Service]
-User=andrew
+User=dbms_template_user
 Group=www-data
-WorkingDirectory=/home/andrew/Desktop/projects/django_chat/src
-ExecStart=/home/andrew/Desktop/projects/django_chat/env/bin/gunicorn --workers 3 --bind unix:/home/andrew/Desktop/projects/django_chat/gunicorn/gunicorn.sock config.wsgi:application
+WorkingDirectory=dbms_template_path/src
+ExecStart=dbms_template_path/env/bin/gunicorn --workers 3 --bind unix:dbms_template_path/gunicorn/gunicorn.sock config.wsgi:application --access-logfile dbms_template_path/gunicorn/access.log --error-logfile dbms_template_path/gunicorn/error.log
 Restart=on-failure
 
 [Install]
