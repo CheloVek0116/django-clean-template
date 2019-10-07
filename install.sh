@@ -10,6 +10,7 @@ source env/bin/activate
 pip install -U pip
 pip install -r requirements.txt
 
+sed -i "s~dbms_template_user~$USER~g" systemd/gunicorn.service
 sed -i "s~dbms_template_path~$project_path~g" nginx/site.conf systemd/gunicorn.service
 sed -i "s~dbms_template_domain~$project_domain~g" nginx/site.conf src/config/settings.py
 
